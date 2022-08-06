@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/header/header.component';
+import BottomNav from './components/Navbar/Navbar.component';
+import {Routes,Route} from 'react-router-dom'
+import Home from './route/Home/home.component';
+import Movies from './route/movies/movies.component';
+import TvSeries from './route/tvSeries/tv.component';
+import Search from './route/search/search.component';
+import Favourites from './route/favourites/favourites.component';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header/>
+      <div className='app'>
+      <Routes>
+        <Route path='/' element={<BottomNav/>}>
+          <Route index element={<Home/>}/>
+          <Route path='/movies' element={<Movies/>}/>
+          <Route path='/tvSeries' element={<TvSeries/>}/>
+          <Route path='/search' element={<Search/>}/>
+          <Route path='/favourites' element={<Favourites/>}/>
+        </Route>
+      </Routes>
+      </div>
+    </>
   );
 }
 
