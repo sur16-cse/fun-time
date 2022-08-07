@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# FUN TIME
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Api Used : Tmdb api, (trending, discover movies, discover tv series, search movies and series)  
+
+React Topics: Hooks , React Router Dom , material ui  
+
+Features:  Pagination , Genre , Search 
+
+preview:
+
+![Screenshot (188)](https://user-images.githubusercontent.com/67889306/183289162-104dc467-f61a-4287-b7b6-40bce5fd4125.png)
+![Screenshot (189)](https://user-images.githubusercontent.com/67889306/183289165-784a8ebe-d3a2-4edd-93c4-49674f72c3a9.png)
+![Screenshot (190)](https://user-images.githubusercontent.com/67889306/183289167-c077dcb3-292f-4d7d-90c8-5f44a6f21532.png)
+![Screenshot (191)](https://user-images.githubusercontent.com/67889306/183289169-950314df-86e3-4cbc-bb42-b6cc543364f0.png)
+
 
 ## Available Scripts
 
