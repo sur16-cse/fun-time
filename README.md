@@ -12,6 +12,8 @@ preview:
 ![Screenshot (189)](https://user-images.githubusercontent.com/67889306/183289165-784a8ebe-d3a2-4edd-93c4-49674f72c3a9.png)
 ![Screenshot (190)](https://user-images.githubusercontent.com/67889306/183289167-c077dcb3-292f-4d7d-90c8-5f44a6f21532.png)
 ![Screenshot (191)](https://user-images.githubusercontent.com/67889306/183289169-950314df-86e3-4cbc-bb42-b6cc543364f0.png)
+![Screenshot (192)](https://user-images.githubusercontent.com/67889306/183289302-8278962d-f4ae-4f03-8561-b09429390053.png)
+![Screenshot (193)](https://user-images.githubusercontent.com/67889306/183289307-d6fec3b2-ee79-43cc-8d94-e485ddd9ce41.png)
 
 
 ## Available Scripts
