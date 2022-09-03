@@ -40,7 +40,7 @@ export const FavoriteProvider = ({ children }) => {
   }
 
   const clearWatchList = (removeWatchMovie) => {
-    setWatchList(addItem(watchList,removeWatchMovie))
+    setWatchList(removeItem(watchList,removeWatchMovie))
   };
 
   const addWatched=(watchedMovie)=>{
@@ -48,7 +48,7 @@ export const FavoriteProvider = ({ children }) => {
   }
 
   const clearWatched = (removeWatchedMovie) => {
-    setWatched(addItem(watched,removeWatchedMovie))
+    setWatched(removeItem(watched,removeWatchedMovie))
   };
 
   //console.log("surbhi")
