@@ -8,9 +8,16 @@ import PendingRoundedIcon from '@mui/icons-material/PendingRounded';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import { useContext } from 'react';
+import { FavoriteContext } from '../../contexts/favorite.context';
 
-function FavoriteMenu() {
+
+function FavoriteMenu({...menu}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const {addFavoriteItems} = useContext(FavoriteContext)
+    const {addWatchList}=useContext(FavoriteContext)
+    const {addWatched}=useContext(FavoriteContext)
+
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -18,6 +25,13 @@ function FavoriteMenu() {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const addToFavorite=()=>addFavoriteItems(menu)
+    const addToWatchList=()=>{
+      addWatchList(menu);
+    }
+    const addToWatched=()=>addWatched(menu)
+
     return (
       <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }} style={{position:'absolute',top:'10px'}}>
@@ -69,13 +83,13 @@ function FavoriteMenu() {
           transformOrigin={{ horizontal: 'left', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
         >
-          <MenuItem>
+          <MenuItem onClick={addToFavorite}>
             <FavoriteIcon />  Add to favorite
           </MenuItem>
-          <MenuItem>
-            <BookmarksIcon /> Add to watch later
+          <MenuItem onClick={addToWatchList}>
+            <BookmarksIcon  /> Add to watch later
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={addToWatched}>
               <TheaterComedyIcon /> Add to watched
           </MenuItem>
         </Menu>

@@ -12,7 +12,6 @@ const useStyles = makeStyles({
   root: {
     position: "fixed",
     bottom: 0,
-    // zIndex: 100,
     width:"60%",
     backgroundColor:"#d1d8e0",
   },

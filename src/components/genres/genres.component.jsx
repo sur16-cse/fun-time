@@ -25,9 +25,9 @@ const Genres = ({type,selectedGenres,setSelectedGenres,genres,setGenres,setPage}
         const {data}=await axios.get(
             `https://api.themoviedb.org/3/genre/${type}/list?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
         );
-        setGenres(data.genres)
+        console.log(data.genres[0].name)
+        setGenres(data.genres.filter(item => (item.name!=="Documentary" && item.name!=="Romance")))
     }
-    console.log(genres)
   return (
     <div className='genre'>
     {
@@ -47,14 +47,14 @@ const Genres = ({type,selectedGenres,setSelectedGenres,genres,setGenres,setPage}
     {
       genres &&  
      (genres.map(
-        (genre)=> <Chip 
+        (genre)=>  <Chip 
         label={genre.name} 
         size='small' 
         style={{margin:"6px",backgroundColor:"lightslategray", color:"lightcyan"}} 
         clickable 
         key={genre.id} 
         onClick={()=>handleAdd(genre)}
-        />
+        /> 
       ))
     }
     </div>

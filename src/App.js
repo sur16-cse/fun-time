@@ -7,9 +7,12 @@ import Movies from './route/movies/movies.component';
 import TvSeries from './route/tvSeries/tv.component';
 import Search from './route/search/search.component';
 import Favourites from './route/favourites/favourites.component';
+import AddMovies from './route/addMovies/add-movies.component';
 function App() {
   return (
     <>
+    <>
+    <div>
       <Header/>
       <div className='app'>
       <Routes>
@@ -22,6 +25,11 @@ function App() {
         </Route>
       </Routes>
       </div>
+    </div>
+    </>
+    {/* <Routes>
+        <Route path='/add' element={AddMovies}></Route>
+    </Routes> */}
     </>
   );
 }
