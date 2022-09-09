@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import FavoriteItem from '../../components/FavoriteItems/FavoriteItem.component'
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import './favourites.styles.css'
 
 const Favourites = () => {
   const {favoriteItems}=useContext(FavoriteContext)
@@ -46,7 +47,7 @@ const Favourites = () => {
       onChange={handleChange}
       aria-label="Platform"
       fullWidth={true}
-      style={{backgroundColor:"#535c68" ,marginTop:"10px"}}
+      style={{backgroundColor:"#535c68"}}
       sx={{
       '& .Mui-selected': {
         backgroundColor:"#aaa69d",
@@ -63,14 +64,32 @@ const Favourites = () => {
       <ToggleButton value="Watched" >Watched</ToggleButton>
     </ToggleButtonGroup>
   
-    
-        <div>
+          <div className='favorite-container'>
+            <div className='favorite-header'>
+                <div className="header-block">
+                    <span>Movie</span>
+                </div>
+                <div className="header-block">
+                    <span>Title</span>
+                </div>
+                <div className="header-block">
+                    <span>Rating</span>
+                </div>
+                <div className="header-block">
+                    <span>MediaType</span>
+                </div>
+                <div className="header-block">
+                    <span>Remove</span>
+                </div>
+            </div>
+          </div>
+        
           {newArray && newArray.map((item,id)=>(
-            <div key={id}>
+            <div key={id} className="itemStore">
               <FavoriteItem  item={item}  alignment={alignment}/>
             </div>
             )) }
-        </div>
+        
   </>    
   )
 }

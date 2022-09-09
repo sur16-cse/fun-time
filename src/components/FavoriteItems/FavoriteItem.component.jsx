@@ -2,7 +2,8 @@ import React from 'react'
 import './FavoriteItem.component.css'
 import { useContext } from 'react'
 import { FavoriteContext } from '../../contexts/favorite.context'
-import { useEffect } from 'react'
+import './FavoriteItem.component.css'
+
 const FavoriteItem = ({item,alignment}) => {
   const {id,poster,title,date,media,vote}=item
   
@@ -28,18 +29,13 @@ const FavoriteItem = ({item,alignment}) => {
   const {clearFavoriteItems,clearWatchList, clearWatched}=useContext(FavoriteContext)
   return (
     <>
-      <div color="white">{title}</div>
-      <div className="checkout-item-container">
+      {/* <div color="white">{title}</div> */}
+      <div className="favorite-item-container">
         <div className="image-container">
             <img src={`https://image.tmdb.org/t/p/w300/${poster}`} alt={`${poster}`} />
         </div>
         <span className='name'>{title}</span>
-        {/* <span className='quantity'>
-            <div className="arrow"  onClick={removeItemHandler}>&#10094;</div>
-                <span className='value'>{quantity}</span>
-            <div className="arrow" onClick={addItemHandler}>&#10095;</div>
-        </span> */}
-        <span className='quantity'>{vote}</span>
+        <span className='quantity'>{vote.toFixed(1)}</span>
         <span className='price'>{media}</span>
         <div className="remove-button" onClick={clearItemHandler}>&#10005;</div>
        </div>
