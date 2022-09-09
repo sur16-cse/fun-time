@@ -5,8 +5,7 @@ import { FavoriteContext } from '../../contexts/favorite.context'
 import { useEffect } from 'react'
 const FavoriteItem = ({item,alignment}) => {
   const {id,poster,title,date,media,vote}=item
-  // console.log(poster)
-  console.log(item)
+  
   const clearItemHandler=()=>{
     switch(alignment){
       case "Favorites":
@@ -32,7 +31,7 @@ const FavoriteItem = ({item,alignment}) => {
       <div color="white">{title}</div>
       <div className="checkout-item-container">
         <div className="image-container">
-            <img src={poster} alt={`${poster}`} />
+            <img src={`https://image.tmdb.org/t/p/w300/${poster}`} alt={`${poster}`} />
         </div>
         <span className='name'>{title}</span>
         {/* <span className='quantity'>

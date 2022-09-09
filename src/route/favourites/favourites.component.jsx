@@ -36,7 +36,7 @@ const Favourites = () => {
     }
     
     // eslint-disable-next-line
-  }, [alignment])
+  }, [alignment,favoriteItems,watchList,watched])
   
   return (
 <>
