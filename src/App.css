@@ -41,3 +41,10 @@
       flex-direction: column;
     }
   }
+
+  .notDisplay{
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+

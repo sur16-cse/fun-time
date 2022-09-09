@@ -64,7 +64,7 @@ const Favourites = () => {
       <ToggleButton value="Watched" >Watched</ToggleButton>
     </ToggleButtonGroup>
   
-        { newArray.length>0 && <div className='favorite-container'>
+        { newArray.length>0 ? <div className='favorite-container'>
             <div className='favorite-header'>
                 <div className="header-block">
                     <span>Movie</span>
@@ -82,6 +82,9 @@ const Favourites = () => {
                     <span>Remove</span>
                 </div>
             </div>
+          </div>:
+          <div>
+            <span className="notDisplay">{alignment} Menu Store is Empty!!!</span>
           </div>
         }
         

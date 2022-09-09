@@ -28,6 +28,7 @@ const Search = () => {
   const [searchText,setSearchText]=useState("")
   const [content,setContent]=useState([])
   const [pages,setPages]=useState(0)
+
   const handleChange = (event, newValue) => {
     setType(newValue);
     setPage(1)
@@ -43,6 +44,8 @@ const Search = () => {
     fetchApi()
     // eslint-disable-next-line
   }, [type,page])
+
+  console.log(searchText)
   
   return (
     <>
@@ -80,9 +83,10 @@ const Search = () => {
       <Tab style={{width:"50%", color:"white"}} label="search movies"/>
       <Tab style={{width:"50%" ,color:"white"}} label="search tv series"/>
     </Tabs>
+   
     <div className="card">
         {
-          content && content.map((t)=>(
+          content.length>0 ? content.map((t)=>(
             <SingleContent 
             key={t.id} 
             id={t.id}
@@ -92,13 +96,14 @@ const Search = () => {
             media={t.media_type}
             vote={t.vote_average}
             />
-          ))
-        }
-        {
-          searchText && !content &&
-          (type?<h2>No Movies Found</h2>: <h2>No Series Found</h2> )
+          )):
+          searchText ?
+            (type?<h2>No Movies Found</h2>: <h2>No Series Found</h2>)
+            :
+            <h2>Search Result is empty</h2>
         }
       </div>
+
       {
         pages>1 && (<CustomPagination setPage={setPage} pages={pages} pageNo={page}/>)
       }

@@ -29,7 +29,6 @@ const FavoriteItem = ({item,alignment}) => {
   const {clearFavoriteItems,clearWatchList, clearWatched}=useContext(FavoriteContext)
   return (
     <>
-      {/* <div color="white">{title}</div> */}
       <div className="favorite-item-container">
         <div className="image-container">
             <img src={`https://image.tmdb.org/t/p/w300/${poster}`} alt={`${poster}`} />
