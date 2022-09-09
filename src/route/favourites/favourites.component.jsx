@@ -64,7 +64,7 @@ const Favourites = () => {
       <ToggleButton value="Watched" >Watched</ToggleButton>
     </ToggleButtonGroup>
   
-          <div className='favorite-container'>
+        { newArray.length>0 && <div className='favorite-container'>
             <div className='favorite-header'>
                 <div className="header-block">
                     <span>Movie</span>
@@ -83,6 +83,7 @@ const Favourites = () => {
                 </div>
             </div>
           </div>
+        }
         
           {newArray && newArray.map((item,id)=>(
             <div key={id} className="itemStore">
