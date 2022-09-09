@@ -26,11 +26,11 @@ function FavoriteMenu({...menu}) {
       setAnchorEl(null);
     };
 
-    const addToFavorite=()=>addFavoriteItems(menu)
-    const addToWatchList=()=>{
-      addWatchList(menu);
-    }
-    const addToWatched=()=>addWatched(menu)
+    //console.log(menu.menu)
+
+    const addToFavorite=()=>addFavoriteItems(menu.menu)
+    const addToWatchList=()=> addWatchList(menu.menu);
+    const addToWatched=()=>addWatched(menu.menu)
 
     return (
       <React.Fragment>

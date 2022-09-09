@@ -1,13 +1,17 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 const addItem = (favoriteItems, movieToadd) => {
   console.log(favoriteItems)
+  // const existingItem=favoriteItems.find((Item)=>Item.id===movieToadd.id)
+  // if(!existingItem)
    return [...favoriteItems,movieToadd];
 };
 
-const removeItem = (favoriteItems, movieToremove) =>{
+const removeItem = (removeItems, movieToremove) =>{
     console.log("remove")
-  return favoriteItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id);
+    console.log(movieToremove.id,removeItems.id)
+  const list=[...removeItems]
+  return list.filter((favoriteItem) => favoriteItem.id !== movieToremove.id);
 }
 
 export const FavoriteContext = createContext({
@@ -40,6 +44,9 @@ export const FavoriteProvider = ({ children }) => {
   }
 
   const clearWatchList = (removeWatchMovie) => {
+
+    const data=Object.values(watchList)
+    console.log(data)
     setWatchList(removeItem(watchList,removeWatchMovie))
   };
 
