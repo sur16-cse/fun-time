@@ -9,6 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import TvIcon from '@mui/icons-material/Tv';
 import MovieIcon from '@mui/icons-material/Movie';
 import { Outlet, useNavigate } from 'react-router-dom';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 import { useEffect } from 'react';
 const useStyles = makeStyles({
     root: {
@@ -40,12 +41,18 @@ const BottomNav =()=> {
         }}
         className={classes.root}
         style={{backgroundColor:"#1B1464"}}
+        sx={{
+          "&  .Mui-selected": {
+            color:'lightgrey' ,
+            backgroundColor:"darkblue"
+          }
+}}
       >
       
         <BottomNavigationAction style={{color:"white"}} label="Trending" icon={<WhatshotIcon />} />
         <BottomNavigationAction style={{color:"white"}} label="TvSeries" icon={<TvIcon />} />
         <BottomNavigationAction style={{color:"white"}} label="Movies" icon={<MovieIcon />} />
-        <BottomNavigationAction style={{color:"white"}} label="Favorites" icon={<Favorite />} />
+        <BottomNavigationAction style={{color:"white"}} label="MenuStore" icon={<WidgetsIcon />} />
         <BottomNavigationAction style={{color:"white"}} label="Search" icon={<SearchOutlinedIcon />} />
         {/* <BottomNavigationAction style={{color:"white"}} label="Search" icon={<AddIcon />} /> */}
       </BottomNavigation>
