@@ -32,7 +32,7 @@ export const FavoriteProvider = ({ children }) => {
 
   const addFavoriteItems = (movieToadd) => {
     setFavoriteItems(addItem(favoriteItems, movieToadd));
-    window.localStorage.setItem('favorite_item', JSON.stringify(favoriteItems));
+    setTimeout(()=>{ window.localStorage.setItem('favorite_item', JSON.stringify(favoriteItems));},100)
   };
 
   const clearFavoriteItems = (movieToremove) => {
@@ -41,7 +41,7 @@ export const FavoriteProvider = ({ children }) => {
 
   const addWatchList=(watchMovie)=>{
     setWatchList(addItem(watchList,watchMovie))
-     window.localStorage.setItem('watchlist_item', JSON.stringify(watchList));
+    setTimeout(()=>{window.localStorage.setItem('watchlist_item', JSON.stringify(watchList));},100)
   }
 
   const clearWatchList = (removeWatchMovie) => {
@@ -53,7 +53,7 @@ export const FavoriteProvider = ({ children }) => {
 
   const addWatched=(watchedMovie)=>{
     setWatched(addItem(watched,watchedMovie))
-    window.localStorage.setItem('watched_item', JSON.stringify(watched));
+    setTimeout(()=>{ window.localStorage.setItem('watched_item', JSON.stringify(watched));},100)
   }
 
   const clearWatched = (removeWatchedMovie) => {
