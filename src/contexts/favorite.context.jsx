@@ -10,7 +10,7 @@ const addItem = (favoriteItems, movieToadd,getdata) => {
   else if(getdata==='watchlist')
     key='watchlist_item'
   else if(getdata==='watched')
-    key='watched'
+    key='watched_item'
   
   if(!existingItem){
       window.localStorage.setItem(key, JSON.stringify([...favoriteItems,movieToadd]))
@@ -30,7 +30,7 @@ const removeItem = (removeItems, movieToremove,getdata) =>{
   else if(getdata==='watchlist')
     key='watchlist_item'
   else if(getdata==='watched')
-    key='watched'
+    key='watched_item'
   
    localStorage.setItem(key,JSON.stringify( removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id)))
   return removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id);
@@ -49,9 +49,18 @@ export const FavoriteContext = createContext({
 });
 
 export const FavoriteProvider = ({ children }) => {
-  const [favoriteItems, setFavoriteItems] = useState([]);
-  const [watchList,setWatchList]=useState([])
-  const [watched,setWatched]=useState([])
+  const [favoriteItems, setFavoriteItems] = useState(()=>{
+    const data=localStorage.getItem("favorite_item");
+    return data?JSON.parse(data):[]
+  });
+  const [watchList,setWatchList]=useState(()=>{
+    const data=localStorage.getItem("watchlist_item");
+    return data?JSON.parse(data):[]
+  })
+  const [watched,setWatched]=useState(()=>{
+    const data=localStorage.getItem("watched_item");
+    return data?JSON.parse(data):[]
+  })
 
   const addFavoriteItems = (movieToadd) => {
     setFavoriteItems(addItem(favoriteItems, movieToadd,"fav"));
