@@ -6,11 +6,11 @@ const addItem = (favoriteItems, movieToadd,getdata) => {
   
   let key;
   if(getdata==="fav")
-    key=favorite_item
+    key='favorite_item'
   else if(getdata==='watchlist')
-    key=watchlist_item
+    key='watchlist_item'
   else if(getdata==='watched')
-    key=watched
+    key='watched'
   
   if(!existingItem){
       window.localStorage.setItem(key, JSON.stringify([...favoriteItems,movieToadd]))
