@@ -30,7 +30,7 @@ const removeItem = (removeItems, movieToremove,getdata) =>{
   else if(getdata==='watchlist')
     key='watchlist_item'
   else if(getdata==='watched')
-    key='watched
+    key='watched'
   
    localStorage.setItem(key,JSON.stringify( removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id)))
   return removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id);
