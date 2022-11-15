@@ -1,10 +1,19 @@
 import { createContext, useState } from "react";
 
-const addItem = (favoriteItems, movieToadd) => {
+const addItem = (favoriteItems, movieToadd,getdata) => {
   console.log(favoriteItems)
   const existingItem=favoriteItems.find((Item)=>Item.id===movieToadd.id)
+  
+  let key;
+  if(getdata==="fav")
+    key=favorite_item
+  else if(getdata==='watchlist')
+    key=watchlist_item
+  else if(getdata==='watched')
+    key=watched
+  
   if(!existingItem){
-      window.localStorage.setItem('item', JSON.stringify([...favoriteItems,movieToadd]))
+      window.localStorage.setItem(key, JSON.stringify([...favoriteItems,movieToadd]))
      return [...favoriteItems,movieToadd];
   }
   else{
@@ -36,7 +45,7 @@ export const FavoriteProvider = ({ children }) => {
   const [watched,setWatched]=useState([])
 
   const addFavoriteItems = (movieToadd) => {
-    setFavoriteItems(addItem(favoriteItems, movieToadd));
+    setFavoriteItems(addItem(favoriteItems, movieToadd,"fav"));
   };
 
   const clearFavoriteItems = (movieToremove) => {
@@ -44,7 +53,7 @@ export const FavoriteProvider = ({ children }) => {
   };
 
   const addWatchList=(watchMovie)=>{
-    setWatchList(addItem(watchList,watchMovie))
+    setWatchList(addItem(watchList,watchMovie,"watchlist"))
   }
 
   const clearWatchList = (removeWatchMovie) => {
@@ -55,7 +64,7 @@ export const FavoriteProvider = ({ children }) => {
   };
 
   const addWatched=(watchedMovie)=>{
-    setWatched(addItem(watched,watchedMovie))
+    setWatched(addItem(watched,watchedMovie,"watched"))
   }
 
   const clearWatched = (removeWatchedMovie) => {
