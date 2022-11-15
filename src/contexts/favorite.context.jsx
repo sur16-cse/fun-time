@@ -32,6 +32,7 @@ export const FavoriteProvider = ({ children }) => {
 
   const addFavoriteItems = (movieToadd) => {
     setFavoriteItems(addItem(favoriteItems, movieToadd));
+    window.localStorage.setItem('favorite_item', JSON.stringify(favoriteItems));
   };
 
   const clearFavoriteItems = (movieToremove) => {
