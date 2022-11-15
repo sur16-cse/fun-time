@@ -17,13 +17,22 @@ const addItem = (favoriteItems, movieToadd,getdata) => {
      return [...favoriteItems,movieToadd];
   }
   else{
-     window.localStorage.setItem('item', JSON.stringify([...favoriteItems]))
+     window.localStorage.setItem(key, JSON.stringify([...favoriteItems]))
      return [...favoriteItems]
   }
 };
 
-const removeItem = (removeItems, movieToremove) =>{
-   localStorage.setItem("item",JSON.stringify( removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id)))
+const removeItem = (removeItems, movieToremove,getdata) =>{
+   
+  let key;
+  if(getdata==="fav")
+    key='favorite_item'
+  else if(getdata==='watchlist')
+    key='watchlist_item'
+  else if(getdata==='watched')
+    key='watched
+  
+   localStorage.setItem(key,JSON.stringify( removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id)))
   return removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id);
 }
 
@@ -49,7 +58,7 @@ export const FavoriteProvider = ({ children }) => {
   };
 
   const clearFavoriteItems = (movieToremove) => {
-    setFavoriteItems(removeItem(favoriteItems, movieToremove));
+    setFavoriteItems(removeItem(favoriteItems, movieToremove,"fav"));
   };
 
   const addWatchList=(watchMovie)=>{
@@ -60,7 +69,7 @@ export const FavoriteProvider = ({ children }) => {
 
     const data=Object.values(removeWatchMovie)
     console.log(removeWatchMovie)
-    setWatchList(removeItem(watchList,removeWatchMovie))
+    setWatchList(removeItem(watchList,removeWatchMovie,"watchlist"))
   };
 
   const addWatched=(watchedMovie)=>{
@@ -68,7 +77,7 @@ export const FavoriteProvider = ({ children }) => {
   }
 
   const clearWatched = (removeWatchedMovie) => {
-    setWatched(removeItem(watched,removeWatchedMovie))
+    setWatched(removeItem(watched,removeWatchedMovie,"watched"))
   };
   
   const value = {
