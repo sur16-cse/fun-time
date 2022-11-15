@@ -41,6 +41,7 @@ export const FavoriteProvider = ({ children }) => {
 
   const addWatchList=(watchMovie)=>{
     setWatchList(addItem(watchList,watchMovie))
+     window.localStorage.setItem('watchlist_item', JSON.stringify(watchList));
   }
 
   const clearWatchList = (removeWatchMovie) => {
@@ -52,6 +53,7 @@ export const FavoriteProvider = ({ children }) => {
 
   const addWatched=(watchedMovie)=>{
     setWatched(addItem(watched,watchedMovie))
+    window.localStorage.setItem('watched_item', JSON.stringify(watched));
   }
 
   const clearWatched = (removeWatchedMovie) => {
