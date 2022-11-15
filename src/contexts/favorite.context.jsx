@@ -14,7 +14,7 @@ const addItem = (favoriteItems, movieToadd) => {
 };
 
 const removeItem = (removeItems, movieToremove) =>{
-   localStorage.setItem("item",JSON.stringify( removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id);))
+   localStorage.setItem("item",JSON.stringify( removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id))
   return removeItems.filter((favoriteItem) => favoriteItem.id !== movieToremove.id);
 }
 
