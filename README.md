@@ -4,7 +4,7 @@ Api Used : Tmdb api, (trending, discover movies, discover tv series, search movi
 
 React Topics: Hooks , React Router Dom , material ui  
 
-Features:  Pagination , Genre , Search , Favorites
+Features:  Pagination , Genre , Search , Favorites , WatchList, Watched
 
 preview:
 
